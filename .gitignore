@@ -2,9 +2,6 @@
 node_modules
 /dist
 
-# ignore config okta
-/src/config.js
-
 # local env files
 .env.local
 .env.*.local
