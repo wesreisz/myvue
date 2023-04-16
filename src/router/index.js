@@ -1,8 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Auth from '@okta/okta-vue'
 import HomeView from '../views/HomeView.vue'
+import { LoginCallback, navigationGuard } from '@okta/okta-vue'
+import { OktaAuth } from '@okta/okta-auth-js'
+import config from '@/config'
 
 Vue.use(VueRouter)
+const oktaAuth= new OktaAuth(config.oidc)
+Vue.use(Auth, { oktaAuth })
 
 const routes = [
   {
@@ -13,12 +19,18 @@ const routes = [
   {
     path: '/profile',
     name: 'profile',
-    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileView.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/additional',
     name: 'additional',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AdditionalView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AdditionalView.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/about',
@@ -27,6 +39,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/login/callback',
+    name: 'login',
+    component: LoginCallback
   }
 ]
 
@@ -35,5 +52,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach(navigationGuard)
 
 export default router

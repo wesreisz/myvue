@@ -4,12 +4,34 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/additional">Additional</router-link> |
       <router-link to="/profile">Profile</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <button @click="login">Login</button>
+      <button @click="logout">Logout</button>
     </nav>
 
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      isAuthenticated: null,
+    };
+  },
+  methods: {
+    async login() {
+      await this.$auth.signInWithRedirect({ originalUri: '/profile' })
+    },
+    async logout() {
+      await await this.$auth.signOut()
+    }
+  }
+}
+
+
+</script>
 
 <style>
 #app {
