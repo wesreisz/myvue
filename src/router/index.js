@@ -7,6 +7,7 @@ import { OktaAuth } from '@okta/okta-auth-js'
 import config from '@/config'
 
 Vue.use(VueRouter)
+console.log(process.env.oktaClientID)
 const oktaAuth= new OktaAuth(config.oidc)
 Vue.use(Auth, { oktaAuth })
 
@@ -41,7 +42,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/login/callback',
+    path: '/login/callback?post_login_redirect_uri=https://zealous-moss-036a59610.3.azurestaticapps.net/about',
     name: 'login',
     component: LoginCallback
   }
