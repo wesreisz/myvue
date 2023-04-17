@@ -42,7 +42,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/.auth/login/okta?post_login_redirect_uri=https://zealous-moss-036a59610.3.azurestaticapps.net/',
+    path: '/.auth/login/okta',
     name: 'login',
     component: LoginCallback
   }
