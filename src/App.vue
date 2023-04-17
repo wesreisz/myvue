@@ -5,7 +5,7 @@
       <router-link to="/additional">Additional</router-link> |
       <router-link to="/profile">Profile</router-link> |
       <router-link to="/about">About</router-link> |
-      <a href="/.auth/login/aad?post_login_redirect_uri=/profile">Login</a>  |
+      <a href="/.auth/login/aad?post_login_redirect_uri=/">Login</a>  |
       <a href="/.auth/logout?post_logout_redirect_uri=/">Logout</a>
     </nav>
 
