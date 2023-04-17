@@ -5,8 +5,8 @@
       <router-link to="/additional">Additional</router-link> |
       <router-link to="/profile">Profile</router-link> |
       <router-link to="/about">About</router-link> |
-      <button @click="login">Login</button>
-      <button @click="logout">Logout</button>
+      <a href="https://zealous-moss-036a59610.3.azurestaticapps.net/.auth/login/okta?post_login_redirect_uri=/">Login</a>  |
+      <a href="https://zealous-moss-036a59610.3.azurestaticapps.net/.auth/okta/logout?post_logout_redirect_uri=/">Logout</a>
     </nav>
 
     <router-view/>
