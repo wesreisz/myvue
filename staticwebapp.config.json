@@ -1,11 +1,11 @@
 {
     "routes": [
       {
-        "route": "/profile",
+        "route": "/profile*",
         "allowedRoles": ["authenticated"]
       },
       {
-        "route": "/additional",
+        "route": "/additional*",
         "allowedRoles": ["admin"]
       }
     ],
