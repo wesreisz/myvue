@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    Title: {{ title }}
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -13,6 +14,11 @@ export default {
   name: 'HomeView',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      title: process.Production.MESSAGE
+    };
   }
 }
 </script>
